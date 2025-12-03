@@ -1,0 +1,153 @@
+@charset "UTF-8";
+html {
+  font-family: "Poppins";
+  font-size: 62.5%;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  font-size: 1.4rem;
+  transition: transform 0.5s ease;
+  display: inline-block;
+}
+
+a:hover {
+  transform: scale(1.3);
+  /* phóng to 30% */
+}
+
+.page-header .content .account .btn-su {
+  display: inline-block;
+  min-width: 98px;
+  padding: 18px 16px;
+  border-radius: 12px;
+  background: #0F1B4C;
+  text-align: center;
+}
+
+.content {
+  width: 1110px;
+  max-width: calc(100% - 48px);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.page-header {
+  background-color: #E6F0FF;
+  height: 100vh;
+  padding-top: 38px;
+}
+.page-header .content {
+  display: flex;
+  position: relative;
+}
+.page-header .content .mobile-menu-ico {
+  display: none;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+}
+.page-header .content .logo {
+  margin-right: 50px;
+}
+.page-header .content .navigator {
+  display: flex;
+  flex: 1;
+  align-items: center;
+}
+.page-header .content .navigator ul {
+  display: flex;
+}
+.page-header .content .navigator li {
+  padding: 14px;
+}
+.page-header .content .navigator li a {
+  color: #4F5361;
+  font-weight: 500;
+}
+.page-header .content .account {
+  min-width: 170px;
+  margin-left: auto;
+}
+.page-header .content .account .signIn-link {
+  color: #0F1B4C;
+  font-weight: 500;
+  margin-right: 18px;
+}
+.page-header .content .account .btn-su {
+  padding: 13px 16px;
+  color: #FFF;
+  text-align: center;
+  font-weight: 500;
+}
+.page-header .content .mobile-user {
+  display: none;
+  width: 35px;
+  height: 35px;
+}
+
+@media screen and (max-width: 991.9999px) {
+  .page-header .content .mobile-menu-ico {
+    display: block;
+  }
+  .page-header .content .mobile-menu-ico:hover ~ .navigator {
+    transform: translateX(0px);
+  }
+  .page-header .content .logo {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .page-header .content .navigator {
+    position: absolute;
+    flex-direction: column;
+    width: 35%;
+    top: 35px;
+    left: 0;
+    border-radius: 10px;
+    background-color: rgb(201, 218, 246);
+    transition: transform 0.5s ease;
+    transform: translateX(calc(-100% - 24px));
+  }
+  .page-header .content .navigator ul {
+    flex-direction: column;
+  }
+  .page-header .content .navigator:hover {
+    transform: translateX(0px);
+  }
+  .page-header .content .account {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    width: 25%;
+    top: 35px;
+    right: 0;
+    border-radius: 10px;
+    background-color: rgb(201, 218, 246);
+    transition: transform 0.5s ease;
+    transform: translateX(calc(100% + 24px));
+  }
+  .page-header .content .account:has(+ .mobile-user:hover) {
+    transform: translateX(0);
+  }
+  .page-header .content .account .btn-su,
+  .page-header .content .account .signIn-link {
+    margin: 0;
+    padding: 14px;
+    text-align: center;
+    background: transparent;
+    color: #0F1B4C;
+    font-weight: 500;
+  }
+  .page-header .content .account:hover {
+    transform: translateX(0);
+  }
+  .page-header .content .mobile-user {
+    display: block;
+  }
+}
+
+/*# sourceMappingURL=styles.css.map */

@@ -1,0 +1,11 @@
+@mixin Grid($column: 1, $spacing: 0px) {
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: $spacing;
+    margin-left: -1 * $spacing;
+
+    >* {
+        width: calc((100% / #{$column}) - #{$spacing});
+        margin-left: $spacing;
+    }
+}

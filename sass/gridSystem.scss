@@ -1,0 +1,130 @@
+@use "sass:map";
+@use "sass:math";
+
+$grid-columns: 12;
+$gutters-spacer: 20px;
+
+
+$grid-breakpoints: (
+    xs: 0,
+    sm: 576px,
+    md: 768px,
+    lg: 992px,
+    xl: 1200px,
+    xxl: 1400px
+);
+
+$container-max-widths: (
+    xs:100%,
+    sm: 540px,
+    md: 720px,
+    lg: 960px,
+    xl: 1140px,
+    xxl: 1320px
+);
+
+$grid-gutter-width: 1.5rem;
+$gutters: (
+    0: 0,
+    1: $gutters-spacer * .25,
+    2: $gutters-spacer * .5,
+    3: $gutters-spacer,
+    4: $gutters-spacer * 1.5,
+    5: $gutters-spacer * 3,
+);
+
+
+
+@mixin make-media-query($dimension) {
+    @media (min-width:$dimension) {
+        @content;
+    }
+}
+
+@mixin make-columns($breakpoint) {
+    @for $i from 1 through $grid-columns {
+        [class^="gs-container"]>.row>.#{$breakpoint}-col-#{$i} {
+            width: math.div(100%, $grid-columns) * $i;
+        }
+    }
+}
+
+@mixin make-row-columns($breakpoint) {
+    @for $i from 1 through $grid-columns {
+        [class^="gs-container"]>.#{$breakpoint}-row-cols-#{$i}>* {
+            width: math.div(100%, $i);
+        }
+    }
+}
+
+@mixin make-offsets($breakpoint) {
+    @for $i from 0 to $grid-columns {
+        [class^="gs-container"]>.row>.#{$breakpoint}-offset-#{$i} {
+            margin-left: math.div(100%, $grid-columns) * $i;
+        }
+    }
+}
+
+@mixin make-gutters-x($breakpoint) {
+    @each $i, $spacer in $gutters {
+        [class^="gs-container"]>.#{$breakpoint}-gutterX-#{$i} {
+            --gutters-x: #{$spacer};
+        }
+    }
+}
+
+@mixin make-gutters-y($breakpoint) {
+    @each $i, $spacer in $gutters {
+        [class^="gs-container"]>.#{$breakpoint}-gutterY-#{$i} {
+            --gutters-y: #{$spacer};
+        }
+    }
+}
+
+/* Container */
+.gs-container-fluid {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+
+    --gutters-x: 0px;
+    --gutters-y: 0px;
+}
+
+.gs-container {
+    @extend .gs-container-fluid;
+}
+
+[class^="gs-container"]>.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: calc(var(--gutters-x) * -0.5);
+    margin-right: calc(var(--gutters-x) * -0.5);
+    margin-top: calc(var(--gutters-y) * -1);
+
+    &[class*="-row-cols-"]>*,
+    [class*="-col-"] {
+        flex: 0 0 auto;
+        padding-left: calc(var(--gutters-x) * 0.5);
+        padding-right: calc(var(--gutters-x) * 0.5);
+        padding-top: var(--gutters-y);
+    }
+}
+
+
+
+@each $breakpoint, $dimension in $grid-breakpoints {
+    $max-width: map.get($container-max-widths , $breakpoint);
+
+    @include make-media-query($dimension) {
+        .gs-container {
+            max-width: $max-width;
+        }
+
+        @include make-columns($breakpoint);
+        @include make-row-columns($breakpoint);
+        @include make-offsets($breakpoint);
+        @include make-gutters-x($breakpoint);
+        @include make-gutters-y($breakpoint);
+    }
+}
