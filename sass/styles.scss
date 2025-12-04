@@ -148,7 +148,6 @@ a:hover {
 
 
             img {
-                display: block;
                 width: 100%;
                 height: 100%;
                 object-fit: fill;
@@ -265,6 +264,14 @@ a:hover {
                 position: static;
             }
 
+            .desc {
+                margin-bottom: 30px;
+            }
+
+            .btn-more {
+                margin-bottom: 30px;
+            }
+
         }
     }
 }
@@ -273,6 +280,23 @@ a:hover {
 @media screen and (min-width:768px) and (max-width:991.9999px) {
     html {
         font-size: 62.5%;
+    }
+
+    .page-header {
+        .head-content {
+            .sub-title {
+                padding-top: 70px;
+            }
+
+            .title {
+                margin-top: 20px;
+                margin-bottom: 40px;
+            }
+
+            .btn-more {
+                margin-bottom: 80px;
+            }
+        }
     }
 }
 
