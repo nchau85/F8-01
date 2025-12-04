@@ -167,6 +167,66 @@ a:hover {
 
 }
 
+.clients {
+    margin-top: 122px;
+    padding-bottom: 40px;
+
+    .content {
+        position: relative;
+    }
+
+    .desc {
+        .text {
+            margin-top: 23px;
+            color: #7D8589;
+            font-weight: 500;
+            line-height: 2rem;
+
+        }
+
+        &:last-child {
+            position: absolute;
+            top: 0px;
+            right: 0px;
+
+            .icon {
+                display: block;
+                margin-left: auto;
+            }
+
+            .text {
+                margin-top: 30px;
+            }
+        }
+    }
+
+    .clients-logo {
+        display: flex;
+        justify-content: space-between;
+        height: 109px;
+        //align-items: center;
+        /* căn giữa dọc */
+        overflow-x: auto;
+        /* hiện cuộn ngang khi tràn */
+        overflow-y: hidden;
+        /* ẩn cuộn dọc */
+        flex-wrap: nowrap;
+
+        img {
+            //flex: 0 0 auto;
+            // display: inline;
+            // //display: inline-block;
+            width: 170px;
+
+            // //max-width: calc(100% + 20px);
+            object-fit: none;
+        }
+    }
+
+}
+
+
+
 //PC
 @media screen and (min-width:992px) {}
 
@@ -301,4 +361,25 @@ a:hover {
 }
 
 //Mobile
-@media screen and (max-width:767.9999px) {}
+@media screen and (max-width:767.9999px) {
+    .clients {
+        .desc {
+            .text {
+                margin-top: 10px;
+            }
+
+            &:last-child {
+                position: static;
+                padding-top: 20px;
+
+                .icon {
+                    margin-left: 0;
+                }
+
+                .text {
+                    margin-top: 10px;
+                }
+            }
+        }
+    }
+}

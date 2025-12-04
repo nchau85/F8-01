@@ -141,6 +141,47 @@ a:hover {
   margin-bottom: 157px;
 }
 
+.clients {
+  margin-top: 122px;
+  padding-bottom: 40px;
+}
+.clients .content {
+  position: relative;
+}
+.clients .desc .text {
+  margin-top: 23px;
+  color: #7D8589;
+  font-weight: 500;
+  line-height: 2rem;
+}
+.clients .desc:last-child {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+}
+.clients .desc:last-child .icon {
+  display: block;
+  margin-left: auto;
+}
+.clients .desc:last-child .text {
+  margin-top: 30px;
+}
+.clients .clients-logo {
+  display: flex;
+  justify-content: space-between;
+  height: 109px;
+  /* căn giữa dọc */
+  overflow-x: auto;
+  /* hiện cuộn ngang khi tràn */
+  overflow-y: hidden;
+  /* ẩn cuộn dọc */
+  flex-wrap: nowrap;
+}
+.clients .clients-logo img {
+  width: 170px;
+  object-fit: none;
+}
+
 @media screen and (max-width: 991.9999px) {
   .page-header .page-nav .mobile-menu-ico {
     display: block;
@@ -234,6 +275,21 @@ a:hover {
   }
   .page-header .head-content .btn-more {
     margin-bottom: 80px;
+  }
+}
+@media screen and (max-width: 767.9999px) {
+  .clients .desc .text {
+    margin-top: 10px;
+  }
+  .clients .desc:last-child {
+    position: static;
+    padding-top: 20px;
+  }
+  .clients .desc:last-child .icon {
+    margin-left: 0;
+  }
+  .clients .desc:last-child .text {
+    margin-top: 10px;
   }
 }
 
